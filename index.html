@@ -71,12 +71,12 @@
     .button:hover {
       background-color: #2980b9;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translate(-50%, -60%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
-    }
   </style>
+  <script>
+    window.onload = function() {
+      alert("⚠️ HACKED BY H4CKTİCKL ⚠️\nSistem ele geçirildi.\nTelegrama katılmadıysan erişim kapatılır.");
+    };
+  </script>
 </head>
 <body>
   <div class="maintenance-container">
@@ -100,36 +100,5 @@
       <button class="button" type="submit">Devam Et</button>
     </form>
   </div>
-
-  <!-- Pop-up script -->
-  <script>
-    window.addEventListener('load', function () {
-      setTimeout(function () {
-        const popup = document.createElement('div');
-        popup.style.position = 'fixed';
-        popup.style.top = '50%';
-        popup.style.left = '50%';
-        popup.style.transform = 'translate(-50%, -50%)';
-        popup.style.background = 'linear-gradient(135deg, #ff0000, #8e44ad)';
-        popup.style.color = '#fff';
-        popup.style.padding = '30px';
-        popup.style.borderRadius = '15px';
-        popup.style.boxShadow = '0 0 20px rgba(255,0,0,0.7)';
-        popup.style.fontSize = '20px';
-        popup.style.fontWeight = 'bold';
-        popup.style.zIndex = '9999';
-        popup.style.textAlign = 'center';
-        popup.style.animation = 'fadeIn 1s ease-out';
-
-        popup.innerHTML = '⚠️ HACKED BY H4CKTİCKL ⚠️<br><br>Sistem ele geçirildi. <br>Kontrol artık bende!';
-
-        document.body.appendChild(popup);
-
-        setTimeout(() => {
-          popup.remove();
-        }, 7000);
-      }, 1000);
-    });
-  </script>
 </body>
 </html>
