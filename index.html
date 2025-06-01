@@ -1,116 +1,131 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>HACKED BY H4CKTICKL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    * {
       margin: 0;
-      background-color: black;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(-45deg, #000000, #1f1f1f, #000000, #2b2b2b);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: #00ffcc;
-      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 50px;
       overflow-x: hidden;
     }
 
-    header {
-      text-align: center;
-      padding: 100px 20px;
-      animation: fadeIn 2s ease-in-out;
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
       font-size: 3em;
-      text-shadow: 0 0 10px #00ffcc;
+      text-shadow: 0 0 20px #00ffcc;
+      animation: fadeIn 2s ease-in-out;
     }
 
-    .typewriter {
-      overflow: hidden;
-      border-right: .15em solid #00ffcc;
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: .10em;
-      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
-      width: 24ch;
-    }
-
-    section {
-      padding: 100px 20px;
-      text-align: center;
+    p {
+      font-size: 1.3em;
+      margin-top: 20px;
+      animation: slideUp 2s ease forwards;
       opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease-out;
     }
 
-    section.visible {
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #ff00cc;
+      text-decoration: none;
+      border: 2px solid #ff00cc;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #ff00cc;
+      color: #000;
+      box-shadow: 0 0 15px #ff00cc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s ease;
+    }
+
+    .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
 
-    a {
-      color: #00ffcc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-shadow: 0 0 5px #00ffff;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 24ch }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #00ffcc }
+    /* Müzik yazısı */
+    .music-note {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.9em;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1 class="typewriter">HACKED BY H4CKTICKL</h1>
-    <p>Android'le hacklendin...</p>
-    <p>Telegram: <a href="https://t.me/H4CKTICKL" target="_blank">@H4CKTICKL</a></p>
-  </header>
+  <h1>HACKED BY H4CKTICKL</h1>
 
-  <section id="about">
-    <h2>Hakkımda</h2>
-    <p>Ben H4CKTICKL. Kodun, güvenliğin ve karanlığın çocuğuyum. Siteye hoş geldin.</p>
-  </section>
+  <p class="reveal">Termux'la geldim, sistemi çözdüm.</p>
+  <p class="reveal">Bu dünya beni duyacak!</p>
+  <p class="reveal">Karanlıktan gelen bir ışığım ben...</p>
+  <a href="hakkimda.html" class="reveal">Hakkımda</a>
 
-  <section id="contact">
-    <h2>İletişim</h2>
-    <p>Mail: <a href="mailto:h4cktickl@example.com">h4cktickl@example.com</a></p>
-  </section>
+  <div class="music-note">🎵 Arka planda çalıyor...</div>
+
+  <audio autoplay loop>
+    <source src="muzik.mp3" type="audio/mpeg">
+    Tarayıcınız bu ses formatını desteklemiyor.
+  </audio>
 
   <script>
-    // Scroll animasyonu
-    const sections = document.querySelectorAll('section');
-
-    const revealOnScroll = () => {
-      const scrollY = window.scrollY + window.innerHeight - 100;
-      sections.forEach(sec => {
-        if (scrollY > sec.offsetTop) {
-          sec.classList.add('visible');
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 50;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
         }
-      });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+      }
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
   </script>
 
-<audio autoplay loop>
-  <source src="muzik.mp3" type="audio/mpeg" />
-  Tarayıcınız audio etiketini desteklemiyor.
-</audio>
 </body>
 </html>
