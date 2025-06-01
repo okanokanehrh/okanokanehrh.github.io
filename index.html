@@ -1,105 +1,135 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>HACKED BY H4CKTICKL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UYARI</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: black;
-      color: #00fff7;
-      font-family: 'Orbitron', monospace;
-      overflow-x: hidden;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #121212;
+      color: #ffffff;
     }
 
-    h1 {
-      font-size: 3em;
-      animation: glow 2s ease-in-out infinite alternate;
+    .maintenance-container {
       text-align: center;
-      margin-top: 100px;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+      width: 90%;
     }
 
-    p {
-      font-size: 1.5em;
-      text-align: center;
-      margin-top: 20px;
-      animation: fadeInUp 1.5s ease forwards;
-    }
-
-    a {
-      color: #00ffcc;
+    .maintenance-title {
+      font-size: 36px;
+      margin-bottom: 20px;
       font-weight: bold;
-      text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .maintenance-title span {
+      display: inline-block;
+      animation: colorChange 6s infinite;
     }
 
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
-      }
-      to {
-        text-shadow: 0 0 20px #00fff7, 0 0 40px #00fff7;
-      }
+    @keyframes colorChange {
+      0%, 100% { color: #f39c12; }
+      25% { color: #3498db; }
+      50% { color: #e74c3c; }
+      75% { color: #2ecc71; }
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .maintenance-message {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.6;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.6s ease;
+    .created-by {
+      font-size: 14px;
+      color: #ccc;
     }
 
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
+    .button {
+      background-color: #3498db;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 5px;
     }
 
-    audio {
-      display: none;
+    .button:hover {
+      background-color: #2980b9;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
     }
   </style>
 </head>
 <body>
+  <div class="maintenance-container">
+    <div class="maintenance-title">
+      <span>DİKKAT !</span><br>
+      <span>Telegram Kanalına Gelmeyen Üyelikler Kapatılır. !</span>
+    </div>
+    <div class="maintenance-message">
+      Telegram Aşağıdaki Butona Basıp Katılabilirsin
+    </div>
+    <div class="maintenance-message">
+      Siteye Devam Etmek İçin "Devam Et"e bas
+    </div>
+    <div class="created-by"></div>
 
-  <audio autoplay loop>
-    <source src="muzik.mp3" type="audio/mpeg" />
-  </audio>
+    <form action="https://t.me/prymxsystems" method="get">
+      <button class="button" type="submit">Telegram</button>
+    </form>
 
-  <h1>HACKED BY H4CKTICKL</h1>
-  <p class="reveal">Termux'la geldim, sistemi çözdüm.</p>
-  <p class="reveal">Bu dünya beni duyacak.</p>
-  <p class="reveal"><a href="#">Hakkımda</a></p>
+    <form action="/login" method="get">
+      <button class="button" type="submit">Devam Et</button>
+    </form>
+  </div>
 
+  <!-- Pop-up script -->
   <script>
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll(".reveal");
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-          reveals[i].classList.add("active");
-        }
-      }
-    }
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        const popup = document.createElement('div');
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
+        popup.style.background = 'linear-gradient(135deg, #ff0000, #8e44ad)';
+        popup.style.color = '#fff';
+        popup.style.padding = '30px';
+        popup.style.borderRadius = '15px';
+        popup.style.boxShadow = '0 0 20px rgba(255,0,0,0.7)';
+        popup.style.fontSize = '20px';
+        popup.style.fontWeight = 'bold';
+        popup.style.zIndex = '9999';
+        popup.style.textAlign = 'center';
+        popup.style.animation = 'fadeIn 1s ease-out';
 
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
+        popup.innerHTML = '⚠️ HACKED BY H4CKTİCKL ⚠️<br><br>Sistem ele geçirildi. <br>Kontrol artık bende!';
+
+        document.body.appendChild(popup);
+
+        setTimeout(() => {
+          popup.remove();
+        }, 7000);
+      }, 1000);
+    });
   </script>
-
 </body>
 </html>
