@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>HACKED BY H4CKTICKL</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      background: black;
+      color: #00fff7;
+      font-family: 'Orbitron', monospace;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: glow 2s ease-in-out infinite alternate;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    p {
+      font-size: 1.5em;
+      text-align: center;
+      margin-top: 20px;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    a {
+      color: #00ffcc;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+      }
+      to {
+        text-shadow: 0 0 20px #00fff7, 0 0 40px #00fff7;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="muzik.mp3" type="audio/mpeg" />
+  </audio>
+
+  <h1>HACKED BY H4CKTICKL</h1>
+  <p class="reveal">Termux'la geldim, sistemi çözdüm.</p>
+  <p class="reveal">Bu dünya beni duyacak.</p>
+  <p class="reveal"><a href="#">Hakkımda</a></p>
+
+  <script>
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+
+</body>
+</html>
