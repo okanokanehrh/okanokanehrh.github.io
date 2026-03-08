@@ -3,38 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H4CKTİCKL - Ana Sayfa</title>
+    <title>HACKED BY H4CKTİCKL</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0a0a0a; color: white; overflow: hidden; }
+        body, html { background-color: black; color: white; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0; height: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         
-        /* Arka plan video alanı */
-        .video-bg { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; z-index: -1; opacity: 0.4; }
+        /* Matris Yağmuru Efekti (Arka Plan) */
+        #matrix { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.15; }
+
+        .container { border: 2px solid red; padding: 40px; background: rgba(0,0,0,0.8); box-shadow: 0 0 20px red; max-width: 90%; }
         
-        .content { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; background: rgba(0,0,0,0.6); }
+        /* Agresif Kırmızı Başlık */
+        h1 { font-size: 3rem; color: red; text-transform: uppercase; text-shadow: 0 0 10px red; animation: blink 1s infinite; margin-bottom: 10px; }
         
-        h1 { font-size: 3.5rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+        /* Senin İsmin (Yeşil) */
+        .hacker-name { font-size: 2.5rem; color: #00ff00; text-shadow: 0 0 10px #00ff00; font-weight: bold; }
+
+        p { font-size: 1.2rem; margin: 15px 0; color: #aaaaaa; }
         
-        .nav-links { display: flex; gap: 20px; margin-top: 30px; }
-        
-        .btn { padding: 12px 30px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; font-weight: bold; transition: 0.4s; text-transform: uppercase; border-radius: 5px; }
-        
-        .btn:hover { background: #00ff00; color: black; box-shadow: 0 0 20px #00ff00; }
+        .crew { color: white; font-style: italic; margin-top: 20px; }
+
+        /* Video Sayfasına Link */
+        .video-btn { margin-top: 30px; display: inline-block; padding: 10px 25px; border: 1px solid #00ff00; color: #00ff00; text-decoration: none; text-transform: uppercase; transition: 0.3s; }
+        .video-btn:hover { background: #00ff00; color: black; box-shadow: 0 0 15px #00ff00; }
+
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
-    <video autoplay muted loop class="video-bg">
-        <source src="video.mp4" type="video/mp4">
-    </video>
+    <canvas id="matrix"></canvas>
 
-    <div class="content">
-        <h1>H4CKTİCKL</h1>
-        <p>Sisteme Giriş Yapıldı. Kaynaklar Hazır.</p>
+    <div class="container">
+        <h1>HACKED</h1>
+        <p>OWNED BY</p>
+        <div class="hacker-name">H4CKTİCKL</div>
         
-        <div class="nav-links">
-            <a href="video.html" class="btn">Videolar</a>
-            <a href="dio2.html" class="btn">Projeler</a>
-        </div>
+        <p class="crew">Nothing is safe.</p>
+        <p>Your security is our playground.</p>
+        
+        <hr border="1" color="red" width="50%">
+        
+        <a href="video.html" class="video-btn">Go to Video Evidence</a>
     </div>
+
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const rainDrop = Array(Math.floor(columns)).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < rainDrop.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrop[i] * fontSize);
+                if (rainDrop[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrop[i] = 0;
+                }
+                rainDrop[i]++;
+            }
+        }
+        setInterval(draw, 30);
+    </script>
 </body>
 </html>
