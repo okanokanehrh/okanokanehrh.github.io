@@ -5,70 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HACKED BY H4CKTİCKL</title>
     <style>
-        body, html { background-color: black; color: white; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0; height: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        body { background-color: black; color: white; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: 'Courier New', monospace; overflow: hidden; }
         
-        /* Matris Yağmuru Efekti (Arka Plan) */
-        #matrix { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.15; }
-
-        .container { border: 2px solid red; padding: 40px; background: rgba(0,0,0,0.8); box-shadow: 0 0 20px red; max-width: 90%; }
+        .signature { font-size: 2.5rem; color: #00ff00; text-shadow: 0 0 15px #00ff00; margin-bottom: 20px; text-transform: uppercase; }
         
-        /* Agresif Kırmızı Başlık */
-        h1 { font-size: 3rem; color: red; text-transform: uppercase; text-shadow: 0 0 10px red; animation: blink 1s infinite; margin-bottom: 10px; }
-        
-        /* Senin İsmin (Yeşil) */
-        .hacker-name { font-size: 2.5rem; color: #00ff00; text-shadow: 0 0 10px #00ff00; font-weight: bold; }
-
-        p { font-size: 1.2rem; margin: 15px 0; color: #aaaaaa; }
-        
-        .crew { color: white; font-style: italic; margin-top: 20px; }
-
-        /* Video Sayfasına Link */
-        .video-btn { margin-top: 30px; display: inline-block; padding: 10px 25px; border: 1px solid #00ff00; color: #00ff00; text-decoration: none; text-transform: uppercase; transition: 0.3s; }
-        .video-btn:hover { background: #00ff00; color: black; box-shadow: 0 0 15px #00ff00; }
-
-        @keyframes blink { 50% { opacity: 0; } }
+        video { width: 80%; border: 2px solid #00ff00; box-shadow: 0 0 20px #00ff00; }
     </style>
 </head>
 <body>
-    <canvas id="matrix"></canvas>
 
-    <div class="container">
-        <h1>HACKED</h1>
-        <p>OWNED BY</p>
-        <div class="hacker-name">H4CKTİCKL</div>
-        
-        <p class="crew">Nothing is safe.</p>
-        <p>Your security is our playground.</p>
-        
-        <hr border="1" color="red" width="50%">
-        
-        <a href="video.html" class="video-btn">Go to Video Evidence</a>
-    </div>
+    <div class="signature">HACKED BY H4CKTİCKL</div>
+
+    <video id="hackerVideo" autoplay controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
     <script>
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const rainDrop = Array(Math.floor(columns)).fill(1);
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-            for (let i = 0; i < rainDrop.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                ctx.fillText(text, i * fontSize, rainDrop[i] * fontSize);
-                if (rainDrop[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    rainDrop[i] = 0;
-                }
-                rainDrop[i]++;
-            }
-        }
-        setInterval(draw, 30);
+        // Modern tarayıcılar sesli videoyu otomatik oynatmak için bazen etkileşim bekler.
+        // Bu script videoyu zorla oynatmayı dener.
+        window.onload = function() {
+            var v = document.getElementById('hackerVideo');
+            v.play();
+        };
     </script>
+
 </body>
 </html>
